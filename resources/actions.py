@@ -11,4 +11,4 @@ class Actions:
         browser.element(f'//b[text()="{city.capitalize()}"]').click()
 
     def correct_city(self, city):
-        browser.element('[class="information__title"]').should(have.text(f"{city.capitalize()}"))
+        browser.element('.information__title').should(have.text(f"{city.capitalize()}"))
