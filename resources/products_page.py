@@ -101,8 +101,8 @@ class Actions:
         cart_product = browser.element(el.product_cart_css).get(query.text)
         cart_price = browser.element(el.price_cart_css).get(query.text)
 
-        assert cart_product.lower() == product_names[a].lower(), f'В корзину был добавлен товар {product_names[a]}, но товар в корзине: {cart_product}.'
-        assert cart_price == prices[a], f'Цена добавленного товара {prices[a]}, но цена в корзине: {cart_price}.'
+        assert cart_product.lower() == product_names[a].lower(), f'В корзину был добавлен товар {product_names[a]}, а товар в корзине: {cart_product}.'
+        assert cart_price == prices[a], f'Цена добавленного товара {prices[a]}, а цена в корзине: {cart_price}.'
 
     def clear_cart(self):
         time.sleep(1)
