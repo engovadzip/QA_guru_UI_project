@@ -10,11 +10,7 @@ pr = products_page.Actions()
 @allure.step('Открытие главной страницы интернет-магазина "Сквот"')
 def test_open_main_page():
     browser.open('')
-
-
-@allure.step('Выбор города Москва')
-def test_choose_city():
-    action.choose_city('Москва')
+    browser.element('.close-modal-btn').click()
 
 
 @allure.step('Нажатие на "Весь каталог"')
