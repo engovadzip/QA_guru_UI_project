@@ -1,8 +1,7 @@
 from selene import browser
 import allure
-from resources import actions, catalogue, products_page
+from resources import catalogue, products_page
 
-action = actions.Actions()
 cat = catalogue.Actions()
 pr = products_page.Actions()
 
@@ -10,6 +9,11 @@ pr = products_page.Actions()
 @allure.step('Открытие главной страницы интернет-магазина "Сквот"')
 def test_open_main_page():
     browser.open('')
+    browser.element('.logo__image')
+
+
+@allure.step('Закрытие поп-апа выбора города')
+def test_close_popup():
     browser.element('.close-modal-btn').click()
 
 
@@ -18,17 +22,17 @@ def test_show_catalogue_menu():
     cat.open_catalogue_menu()
 
 
-@allure.step('Открытие категории "Скейтбординг"')
-def test_open_skate_category(category):
+@allure.step('Открытие каталога выбранной категории (по умолчанию "Скейтбординг")')
+def test_open_selected_category(category):
     cat.open_catalogue_category(category)
 
 
-@allure.step('Открытие категории "Деки скейтовые"')
-def test_open_decks_category(product):
+@allure.step('Открытие товаров выбранной категории (по умолчанию "Деки скейтовые")')
+def test_open_selected_products_category(product):
     pr.open_category(product)
 
 
-@allure.step('Выбор наличия товаров в интернет-магазине')
+@allure.step('Выбор наличия товаров в выбранном магазине')
 def test_select_shop():
     pr.select_shop('Интернет магазин')
 
