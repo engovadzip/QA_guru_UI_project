@@ -1,6 +1,13 @@
+import os
 import pytest
+from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
+from selenium.webdriver import ChromeOptions, FirefoxOptions
+
+
+chrome_versions = ['99.0', '100.0']
+firefox_versions = ['97.0', '98.0']
 
 def pytest_addoption(parser):
     parser.addoption('--category', action='store', default='скейтбординг',
@@ -9,14 +16,71 @@ def pytest_addoption(parser):
                      help="Choose product type.")
     parser.addoption('--sort', action='store', default='сначала дешевое',
                      help="Choose products sort type.")
+    parser.addoption('--browser', action='store', default='firefox',
+                     help="Choose browser name.")
+    parser.addoption('--browser_version', action='store', default='98.0',
+                     help="Choose browser version. For Chrome: 99.0 or 100.0. For Firefox: 97.0 or 98.0.")
+    parser.addoption('--remote', action='store', default='on',
+                     help="Remote mode: on or off.")
+
+
+@pytest.fixture(scope='session', autouse=True)
+def load_env():
+    load_dotenv()
+
 
 @pytest.fixture(scope="session", autouse=True)
-def open_browser():
-    driver = webdriver.Firefox()
-    browser.config.driver = driver
+def setup_browser(request):
+    remote_mode = request.config.getoption("remote")
+    browser_name = request.config.getoption("browser")
+    browser_version = request.config.getoption('browser_version')
+
+    if browser_name.lower() == 'firefox':
+        options = FirefoxOptions()
+        if browser_version not in firefox_versions:
+            raise pytest.UsageError("Choose one of the following versions: 97.0 or 98.0.")
+
+    elif browser_name.lower() == 'chrome':
+        options = ChromeOptions()
+        if browser_version not in chrome_versions:
+            raise pytest.UsageError("Choose one of the following versions: 99.0 or 100.0.")
+
+    else:
+        raise pytest.UsageError("Choose one of the following browsers: Chrome or Firefox.")
+
     browser.config.base_url = 'https://www.skvot.com/'
     browser.config.window_height = 1080
     browser.config.window_width = 1920
+
+    if remote_mode.lower() == 'on':
+        selenoid_capabilities = {
+            "browserName": browser_name,
+            "browserVersion": browser_version,
+            "selenoid:options": {
+                "enableVNC": True,
+                "enableVideo": True
+            }
+        }
+        options.capabilities.update(selenoid_capabilities)
+
+        login = os.getenv('LOGIN')
+        password = os.getenv('PASSWORD')
+
+        driver = webdriver.Remote(command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+                                  options=options)
+        browser.config.driver = driver
+
+    elif remote_mode.lower() == 'off':
+        if browser_name.lower() == 'firefox':
+            driver = webdriver.Firefox()
+        elif browser_name.lower() == 'chrome':
+            driver = webdriver.Chrome()
+
+        browser.config.driver = driver
+
+    else:
+        raise pytest.UsageError('Choose "on" for remote launch of tests or choose "off" for local launch.')
+
     yield
     browser.quit()
 
