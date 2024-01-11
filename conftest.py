@@ -1,6 +1,7 @@
 import os
 import pytest
 from dotenv import load_dotenv
+from resources import attach
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
@@ -9,6 +10,7 @@ from selenium.webdriver import ChromeOptions, FirefoxOptions
 chrome_versions = ['99.0', '100.0']
 firefox_versions = ['97.0', '98.0']
 
+
 def pytest_addoption(parser):
     parser.addoption('--category', action='store', default='скейтбординг',
                      help="Choose products category.")
@@ -16,9 +18,9 @@ def pytest_addoption(parser):
                      help="Choose product type.")
     parser.addoption('--sort', action='store', default='сначала дешевое',
                      help="Choose products sort type.")
-    parser.addoption('--browser', action='store', default='firefox',
+    parser.addoption('--browser', action='store', default='chrome',
                      help="Choose browser name.")
-    parser.addoption('--browser_version', action='store', default='98.0',
+    parser.addoption('--browser_version', action='store', default='100.0',
                      help="Choose browser version. For Chrome: 99.0 or 100.0. For Firefox: 97.0 or 98.0.")
     parser.addoption('--remote', action='store', default='on',
                      help="Remote mode: on or off.")
@@ -82,6 +84,13 @@ def setup_browser(request):
         raise pytest.UsageError('Choose "on" for remote launch of tests or choose "off" for local launch.')
 
     yield
+
+    if browser_name.lower() == 'chrome':
+        attach.add_html(browser)
+        attach.add_logs(browser)
+
+    attach.add_screenshot(browser)
+    attach.add_video(browser)
     browser.quit()
 
 @pytest.fixture(scope='session')
