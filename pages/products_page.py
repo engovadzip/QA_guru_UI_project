@@ -49,8 +49,10 @@ el = Elements()
 
 class Actions:
     def open_category(self, category):
-        browser.element(f'//a[text()="{category.capitalize()}" and @data-url]').click()
+        browser.element(f'//a[contains(text(), "{category.capitalize()}") and @data-url]').click()
         browser.element(el.side_panel_css)
+        title = browser.element('.breadcrumbs').get(query.text)
+        assert category.lower() in title.lower(), f"Открылась категория {title} вместо {category.capitalize()}."
 
     def sort_products(self, sort):
         browser.element(el.sort_menu_css).click()
