@@ -1,29 +1,42 @@
 <h1 align="center">"Skvot" online boardshop automate testing project</h1>  
 <p align="center">
-<a href="https://www.skvot.com/">
-<img class="black-back" src="https://www.skvot.com/img/logo-wht.svg" height="100" />
-</a>
-<style>
-.black-back img{
-background-repeat:no-repeat;
-background-size:cover;
-}
-
-.black-back {
-background-color: rgb(0,0,0);
-}
- </style>
+    <a href="https://www.skvot.com/">
+        <img src="resources/skvot-logo.svg" height="100" />
+    </a>
 </p>
 
 <h2 align="center">Used stack</h2>
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" width="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" height="40" width="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" height="40" width="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" height="40" width="40" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PyCharm_Icon.svg" height="40" width="40" />
-<img src="https://avatars.githubusercontent.com/u/5879127?s=200&v=4" height="40" width="40" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" height="40" width="40" />
+    <a href="https://www.python.org/">
+        <img src="resources/python-original.svg" height="40" width="40" />
+    </a>
+    <a href="https://www.jetbrains.com/pycharm/">
+        <img src="resources/pycharm-logo.svg" height="40" width="40" />
+    </a>
+    <a href="https://www.selenium.dev/documentation/webdriver/">
+        <img src="resources/selenium-original.svg" height="40" width="40" />
+    </a>
+    <a href="https://docs.pytest.org/">
+        <img src="resources/pytest-original.svg" height="40" width="40" />
+    </a>
+    <a href="https://git-scm.com/">
+        <img src="resources/git-original.svg" height="40" width="40" />
+    </a>
+    <a href="https://www.jenkins.io/">
+        <img src="resources/jenkins-original.svg" height="40" width="40" />
+    </a>
+    <a href="https://aerokube.com/selenoid/">
+        <img src="resources/aerokube_logo.svg" height="40" width="40" />
+    </a>
+    <a href="https://allurereport.org/">
+        <img src="resources/allure-report-logo.svg" height="40" width="40" />
+    </a>
+    <a href="https://qameta.io/">
+        <img src="resources/allure-testops.svg" height="40" width="40" />
+    </a>
+    <a href="https://telegram.org/">
+        <img src="resources/telegram-logo.svg" height="40" width="40" />
+    </a>
 </p>  
 
 ## Description
