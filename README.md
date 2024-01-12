@@ -59,7 +59,7 @@ Before launch, you need to install the following (installation guide links are p
 * [Allure Pytest](https://pypi.org/project/allure-pytest/).  
 
 Also, download the repository on your PC/laptop:  
-* Click on "**<> Code**" above.  
+* Click on "**<> Code**" on the [project page](https://github.com/engovadzip/QA_guru_project).  
 * In the opened pop-up menu click on "**Download ZIP**".  
 * Download it to preferred directory and unpack downloaded archive there.  
 
@@ -73,17 +73,59 @@ After changing directory, launch tests using the following command:
 ```
 pytest -v .
 ```  
-After running the command, Google Chrome will open and tests will start. After the last step of tests (clearing the cart), browser will close. Test steps results (PASSED or FAILED) will be shown in the command line window. Its example below:  
+After running the command, Google Chrome will open and tests will start. Tests process is below:  
+<p align="center">
+    <img src="resources/skateboard_tests.gif" />  
+</p>  
+
+After the last step of tests (clearing the cart), browser will close. Test steps results (PASSED or FAILED) will be shown in the command line window. Its example below:  
 <p align="center">
     <img src="resources/test_results.png" />  
 </p>  
 
 #### Tests report  
-Tests report generates by Allure Report. To check it, change your directory (in command line too) to ```tests/``` folder. It is located in repository's directory. Run the following command:  
+Tests report generates by Allure Report. To check it, run the following command after tests:  
 ```
 allure serve allure-results
 ```  
 After that, your system's default browser will open and there will be generated report.  
+
+####  Tests options  
+By default, tests' options:  
+* Local launch.  
+* Google Chrome browser.  
+* "Скейтбординг" category.  
+* "Деки скейтовые" products' category.  
+* "Сначала дешевое" products' sorting.  
+
+Also, you can set the options on tests using the following parameters in command line:  
+* ```--category``` sets category that will be opened from "Categories".  
+* ```--product``` sets products' category that will be selected on products' list page.  
+* ```--sort``` sets sorting of products.  
+* ```--browser``` sets browser that will be used for tests. There is two options: ```chrome``` or ```firefox```.  
+* ```--remote``` sets tests launch locally or on [Selenoid server](https://selenoid.autotests.cloud/). If this mode will be turned on, you can check tests process on the server only.   
+* ```--browser_version``` sets browser version on Selenoid server. For Mozilla Firefox there are 97.0 and 98.0 versions. For Google Chrome there are 99.0 and 100.0 versions. By default, browser version is 100.0 for Google Chrome. If you set incorrect browser version, there will be the following error message:  
+
+For Mozilla Firefox:
+```
+Choose one of the following versions: 97.0 or 98.0.
+```  
+For Google Chrome:
+```
+Choose one of the following versions: 99.0 or 100.0.
+```  
+
+For example, if you want to open "Сноубординг" category, select "Крепления" products' category, sort by "сначала дорогое" and launch it locally, run the following command in command line:  
+```
+pytest -v --category="Сноубординг" --product="Крепления" --sort="сначала дорогое" .
+```  
+Its command's tests process is below:  
+<p align="center">
+    <img src="resources/snowboard_tests.gif" />  
+</p>  
+It's OK if you don't set any option from command line because default values are already set (described above). But if you will set conflict options, tests will fail.  
+
+For example, you set "Скейтбординг" category and "Крепления" products' category. There is no "Крепления" products' category in "Скейтбординг". That's why "test_open_selected_products_category" step will fail.  
 
 ### Launch using Jenkins  
 
