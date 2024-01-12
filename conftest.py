@@ -22,7 +22,7 @@ def pytest_addoption(parser):
                      help="Choose browser name.")
     parser.addoption('--browser_version', action='store', default='100.0',
                      help="Choose browser version. For Chrome: 99.0 or 100.0. For Firefox: 97.0 or 98.0.")
-    parser.addoption('--remote', action='store', default='on',
+    parser.addoption('--remote', action='store', default='off',
                      help="Remote mode: on or off.")
 
 
@@ -89,8 +89,11 @@ def setup_browser(request):
         attach.add_html(browser)
         attach.add_logs(browser)
 
+    if remote_mode.lower() == 'on':
+        attach.add_video(browser)
+
     attach.add_screenshot(browser)
-    attach.add_video(browser)
+
     browser.quit()
 
 @pytest.fixture(scope='session')
