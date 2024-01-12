@@ -3,7 +3,6 @@
 <a href="https://www.skvot.com/">
 <img class="black-back" src="https://www.skvot.com/img/logo-wht.svg" height="100" />
 </a>
-</p>
 <style>
 .black-back img{
 background-repeat:no-repeat;
@@ -14,6 +13,7 @@ background-size:cover;
 background-color: rgb(0,0,0);
 }
  </style>
+</p>
 
 <h2 align="center">Used stack</h2>
 <p align="center">
