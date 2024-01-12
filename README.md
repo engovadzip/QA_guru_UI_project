@@ -1,9 +1,19 @@
 <h1 align="center">"Skvot" online boardshop automate testing project</h1>  
 <p align="center">
 <a href="https://www.skvot.com/">
-<img src="https://www.skvot.com/img/logo-wht.svg" height="100" />
+<img class="black-back" src="https://www.skvot.com/img/logo-wht.svg" height="100" />
 </a>
 </p>
+<style>
+.black-back img{
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+.black-back {
+background-color: rgb(0,0,0);
+}
+ </style>
 
 <h2 align="center">Used stack</h2>
 <p align="center">
@@ -20,7 +30,7 @@
 In this project we check the following:  
 * Opening of desired products' category.  
 * Sorting of products.  
-* Product name and product price in products list is the same as on the product description page.  
+* Product name and product price in products list are the same as on the product description page.  
 * Adding the product to cart.  
 * Clearing the cart.  
 
