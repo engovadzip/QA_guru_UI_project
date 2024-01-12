@@ -1,7 +1,7 @@
 import os
 import pytest
 from dotenv import load_dotenv
-from resources import attach
+from utils import attach
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
