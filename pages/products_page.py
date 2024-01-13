@@ -1,4 +1,4 @@
-from selene import browser, command, have, query
+from selene import be, browser, command, have, query
 from random import randint
 import time
 
@@ -98,7 +98,9 @@ class Actions:
         time.sleep(1)
 
         browser.element(el.cart_xp).hover()
-        browser.element(el.cart_window_xp)
+        browser.element(el.cart_window_xp).should(be.present)
+
+        time.sleep(1)
 
         cart_product = browser.element(el.product_cart_css).get(query.text)
         cart_price = browser.element(el.price_cart_css).get(query.text)
