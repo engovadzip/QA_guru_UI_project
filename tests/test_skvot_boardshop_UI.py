@@ -43,10 +43,10 @@ def test_sort_products(sort):
 
 
 @allure.step('Добавление случайного товара в корзину')
-def test_add_random_product_to_cart(sort):
+def test_add_random_product_to_cart():
     pr.add_random_product_to_cart()
 
 
 @allure.step('Удаление всех товаров из корзины')
-def test_clear_cart(sort):
+def test_clear_cart():
     pr.clear_cart()
