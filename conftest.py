@@ -31,7 +31,7 @@ def load_env():
     load_dotenv()
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def setup_browser(request):
     remote_mode = request.config.getoption("remote")
     browser_name = request.config.getoption("browser")
