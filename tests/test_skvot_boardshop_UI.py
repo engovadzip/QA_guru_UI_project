@@ -1,4 +1,4 @@
-from selene import browser
+from selene import be, browser
 import allure
 from pages import catalogue, products_page
 
@@ -9,7 +9,7 @@ pr = products_page.Actions()
 @allure.step('Открытие главной страницы интернет-магазина "Сквот"')
 def test_open_main_page():
     browser.open('')
-    browser.element('.logo__image')
+    browser.element('.logo__image').should(be.present)
 
 
 @allure.step('Закрытие поп-апа выбора города')

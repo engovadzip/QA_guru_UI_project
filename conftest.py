@@ -56,7 +56,7 @@ def setup_browser(request):
 
     if remote_mode.lower() == 'on':
         selenoid_capabilities = {
-            "browserName": browser_name,
+            "browserName": browser_name.lower(),
             "browserVersion": browser_version,
             "selenoid:options": {
                 "enableVNC": True,
