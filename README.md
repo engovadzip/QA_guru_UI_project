@@ -50,7 +50,10 @@
         * [Tests options](#tests-options)  
             * [Options conflicts](#options-conflicts)  
     * [Launch using Jenkins](#launch-using-jenkins)  
-* [Tests report](#tests-report)  
+* [Tests results](#tests-results)  
+    * [TestOps report](#testops-report)  
+    * [Allure report](#allure-report)  
+    * [Telegram notification](#telegram-notification)  
 
 ## Description
 
@@ -120,7 +123,7 @@ By default, tests' options:
 * "Сначала дешевое" products' sorting.  
 
 Also, you can set the options on tests using the following parameters in command line:  
-* ```--category``` sets category that will be opened from "Categories".  
+* ```--category``` sets category that will be opened from "Весь каталог".  
 * ```--product``` sets products' category that will be selected on products' list page.  
 * ```--sort``` sets sorting of products.  
 * ```--browser``` sets browser that will be used for tests. There is two options: ```chrome``` or ```firefox```.  
@@ -168,7 +171,7 @@ There will be the following parameters on the opened page:
 * **BROWSER_NAME** sets browser that will be used for tests.   
 * **BROWSER_VERSION** sets browser version. For Mozilla Firefox there are 97.0 and 98.0 versions. For Google Chrome there are 99.0 and 100.0 versions.  
 * **SORTING** sets sorting of products.  
-* **CATEGORY** sets category that will be opened from "Categories".  
+* **CATEGORY** sets category that will be opened from "Весь каталог".  
 * **PRODUCT_CATEGORY** sets products' category that will be selected on products' list page.
 
 **NOTE:** Don't set [conflict options](#options-conflicts)!  
@@ -193,11 +196,11 @@ Build's status will change when tests will finish. And there will appear [TestOp
 ## Tests results
 
 ### TestOps report
-Go to [Jenkins project's page](https://jenkins.autotests.cloud/job/engovadzip_UI_project/). Click on <img src="resources/allure-testops.svg" height="12" width="16" /> in one of successful builds.  
+Go to [Jenkins project's page](https://jenkins.autotests.cloud/job/engovadzip_UI_project/). Click on <img src="resources/allure-testops.svg" height="18" width="20" /> in one of successful builds.  
 
 ### Allure report
 
-If you generate report locally, follow the [instruction](#generating-a-test-report). If you generate it on Jenkins, click on <img src="resources/allure-jenkins.png" height="12" width="12" /> in one of successful builds. Tests report is provided below:
+If you generate report locally, follow the [instruction](#generating-a-test-report). If you generate it on Jenkins, click on <img src="resources/allure-jenkins.png" height="18" width="18" /> in one of successful builds. Tests report is provided below:
 <p align="center">
     <img src="resources/allure-report.png" />  
 </p>  
