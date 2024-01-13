@@ -79,7 +79,7 @@ Before launch, you need to install the following (installation guide links are p
 * [Selene](https://github.com/yashaka/selene?tab=readme-ov-file#installation).  
 * [Allure Pytest](https://pypi.org/project/allure-pytest/).  
 
-Also, download the repository with this projectgi on your PC/laptop:  
+Also, download the repository with this project on your PC/laptop:  
 * Click on "**<> Code**" on the [project page](https://github.com/engovadzip/QA_guru_project).  
 * In the opened pop-up menu click on "**Download ZIP**".  
 * Download it to preferred directory and unpack downloaded archive there.  
@@ -205,6 +205,9 @@ If you generate report locally, follow the [instruction](#generating-a-test-repo
     <img src="resources/allure-report.png" />  
 </p>  
 
+<p align="center">
+    <img src="resources/allure-report-2.png" />  
+</p>  
 
 ### Telegram notification
 
