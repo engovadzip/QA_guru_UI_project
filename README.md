@@ -152,7 +152,7 @@ Its command's tests process is below:
 
 It's OK if you don't set any option from command line because default values are already set (described above). But if you will set conflict options, tests will fail.  
 
-For example, if you set "Скейтбординг" category and "Крепления для сноуборда" products' category. There is no "Крепления" products' category in "Скейтбординг". That's why `test will fail.  
+For example, if you set "Скейтбординг" category and "Крепления для сноуборда" products' category. There is no "Крепления" products' category in "Скейтбординг". That's why test will fail.  
 
 ### Launch using Jenkins
 
