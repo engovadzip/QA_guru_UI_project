@@ -209,9 +209,6 @@ If you generate report locally, follow the [instruction](#generating-a-test-repo
     <img src="resources/allure-report.png" />  
 </p>  
 
-<p align="center">
-    <img src="resources/allure-report-2.png" />  
-</p>  
 
 ### Telegram notification
 
