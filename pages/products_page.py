@@ -45,6 +45,12 @@ class Elements:
     # Заголовок корзины
     cart_title_xp = '.cart-popup__title'
 
+    # Наименование товара на странице с его описанием
+    product_page_name_css = '.page-head__title'
+
+    # Цена товара на странице с его описанием
+    product_page_price_css = '.product-price__price-new'
+
 el = Elements()
 
 class Actions:
@@ -74,7 +80,7 @@ class Actions:
         browser.element(el.ok_css).click()
         browser.element(el.side_panel_css)
 
-    def add_random_product_to_cart(self):
+    def open_random_prouct_info(self):
         products = browser.all(el.product_css)
         product_names = [a.get(query.text).replace('\n', ' ') for a in products]
         prices = browser.all(el.price_css)
@@ -88,10 +94,23 @@ class Actions:
         browser.element(f'//*[text()="{prices[a]}"]')
 
         time.sleep(1)
+
+        product_page_name = browser.element(el.product_page_name_css).get(query.text)
+        product_page_price = browser.element(el.product_page_price_css).get(query.text).replace(' ', '')
+
+        assert product_page_name.lower() == product_names[
+            a].lower(), f'Наименование товара в списке товаров: {product_names[a]}, а на странице: {product_page_name}.'
+        assert product_page_price == prices[a].replace(' ', ''), f'Цена товара в списке товаров: {prices[a]}, а на странице: {product_page_price}.'
+
+
+    def add_product_to_cart(self):
         sizes = browser.all(el.product_size_css)
         if len(sizes) > 0:
             size = sizes[0].get(query.text)
             sizes[0].click()
+
+        product_page_name = browser.element(el.product_page_name_css).get(query.text)
+        product_page_price = browser.element(el.product_page_price_css).get(query.text).replace(' ', '')
 
         browser.element(el.add_to_cart_xp).perform(command.js.click)
 
@@ -103,12 +122,13 @@ class Actions:
         time.sleep(1)
 
         cart_product = browser.element(el.product_cart_css).get(query.text)
-        cart_price = browser.element(el.price_cart_css).get(query.text)
+        cart_price = browser.element(el.price_cart_css).get(query.text).replace(' ', '')
 
-        assert cart_product.lower() == product_names[a].lower(), f'В корзину был добавлен товар {product_names[a]}, а товар в корзине: {cart_product}.'
-        assert cart_price == prices[a], f'Цена добавленного товара {prices[a]}, а цена в корзине: {cart_price}.'
+        assert cart_product.lower() == product_page_name.lower(), f'В корзину был добавлен товар {product_page_name}, а товар в корзине: {cart_product}.'
+        assert cart_price == product_page_price, f'Цена добавленного товара {product_page_price}, а цена в корзине: {cart_price}.'
 
     def clear_cart(self):
+        browser.element(el.cart_xp).hover()
         time.sleep(1)
         browser.element(el.clear_xp).click()
         time.sleep(1)

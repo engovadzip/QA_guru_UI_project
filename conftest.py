@@ -24,6 +24,8 @@ def pytest_addoption(parser):
                      help="Choose browser version. For Chrome: 99.0 or 100.0. For Firefox: 97.0 or 98.0.")
     parser.addoption('--remote', action='store', default='off',
                      help="Remote mode: on or off.")
+    parser.addoption('--search', action='store', default='volcom',
+                     help="Search request.")
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -37,24 +39,24 @@ def setup_browser(request):
     browser_name = request.config.getoption("browser")
     browser_version = request.config.getoption('browser_version')
 
-    if browser_name.lower() == 'firefox':
-        options = FirefoxOptions()
-        if browser_version not in firefox_versions:
-            raise pytest.UsageError("Choose one of the following versions: 97.0 or 98.0.")
-
-    elif browser_name.lower() == 'chrome':
-        options = ChromeOptions()
-        if browser_version not in chrome_versions:
-            raise pytest.UsageError("Choose one of the following versions: 99.0 or 100.0.")
-
-    else:
-        raise pytest.UsageError("Choose one of the following browsers: Chrome or Firefox.")
-
     browser.config.base_url = 'https://www.skvot.com/'
     browser.config.window_height = 1080
     browser.config.window_width = 1920
 
     if remote_mode.lower() == 'on':
+        if browser_name.lower() == 'firefox':
+            options = FirefoxOptions()
+            if browser_version not in firefox_versions:
+                raise pytest.UsageError("Choose one of the following versions: 97.0 or 98.0.")
+
+        elif browser_name.lower() == 'chrome':
+            options = ChromeOptions()
+            if browser_version not in chrome_versions:
+                raise pytest.UsageError("Choose one of the following versions: 99.0 or 100.0.")
+
+        else:
+            raise pytest.UsageError("Choose one of the following browsers: Chrome or Firefox.")
+
         selenoid_capabilities = {
             "browserName": browser_name.lower(),
             "browserVersion": browser_version,
@@ -75,9 +77,15 @@ def setup_browser(request):
     elif remote_mode.lower() == 'off':
         if browser_name.lower() == 'firefox':
             driver = webdriver.Firefox()
+            options = FirefoxOptions()
         elif browser_name.lower() == 'chrome':
             driver = webdriver.Chrome()
+            options = ChromeOptions()
 
+        options.add_argument("--disable-gpu")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--incognito")
         browser.config.driver = driver
 
     else:
@@ -110,3 +118,8 @@ def product(request):
 def sort(request):
     sort = request.config.getoption("sort")
     return sort
+
+@pytest.fixture(scope='session')
+def search(request):
+    search = request.config.getoption("search")
+    return search
