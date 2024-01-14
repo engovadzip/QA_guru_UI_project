@@ -1,4 +1,5 @@
 from selene import be, browser, query
+import time
 
 class Actions:
     def open_catalogue_menu(self):
@@ -15,6 +16,9 @@ class Actions:
         browser.element('.search-btn').click()
         browser.element('//input[@placeholder="Введите слово для поиска"]').send_keys(search).press_enter()
 
+        time.sleep(3)
+
+        browser.element('.search-btn').should(be.present)
         browser.element('.top-item__title').should(be.present)
         results = browser.all('.top-item__title')
 
