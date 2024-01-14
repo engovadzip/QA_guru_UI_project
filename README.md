@@ -96,12 +96,12 @@ After changing directory, launch tests using the following command:
 ```
 pytest -v .
 ```  
-After running the command, Google Chrome will open and tests will start. Tests process is below:  
+After running the command, Google Chrome will open and tests will start. Tests process is provided below:  
 <p align="center">
     <img src="resources/skateboard_tests.gif" />  
 </p>  
 
-After the last step of tests (clearing the cart), browser will close. Test steps results (PASSED or FAILED) will be shown in the command line window. Its example below:  
+After the last step of tests (clearing the cart), browser will close. Test steps results (PASSED or FAILED) will be shown in the command line window. Its example is provided below:  
 <p align="center">
     <img src="resources/test_results.png" />  
 </p>  
@@ -146,7 +146,7 @@ For example, if you want to open "Сноубординг" category, select "Кр
 ```
 pytest -v --category="Сноубординг" --product="Крепления для сноуборда" --sort="сначала дорогое" .
 ```  
-Its command's tests process is below:  
+Its command's tests process is provided below:  
 <p align="center">
     <img src="resources/snowboard_tests.gif" />  
 </p>  
@@ -185,7 +185,7 @@ The parameters' settings page window is provided below.
     <img src="resources/params.png" />  
 </p>  
 
-Click on "**Build**" button after choosing desired parameters. You will be redirected back on project's page after clicking on "**Build**". There will be new build below "**Build History**" title:  
+Click on "**Build**" button after choosing desired parameters. You will be redirected back on project's page after clicking on "**Build**". There will be new build below "**Build History**" title as shown in the following figure:  
 <p align="center">
     <img src="resources/build.png" />  
 </p>  
