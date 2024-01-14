@@ -185,7 +185,7 @@ The parameters' settings page window is provided below.
     <img src="resources/params.png" />  
 </p>  
 
-Click on "**Build**" button after choosing desired parameters. You will be redirected back on project's page after clicking on "**Build**". There will be new build below "**Build History**" title as shown in the following figure:  
+Click on "**Build**" button after choosing desired parameters. You will be redirected back on project's page after clicking on "**Build**". There will be a new build below "**Build History**" title as shown in the following figure:  
 <p align="center">
     <img src="resources/build.png" />  
 </p>  
