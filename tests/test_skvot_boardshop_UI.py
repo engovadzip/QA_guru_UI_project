@@ -117,8 +117,6 @@ def test_check_add_to_cart_n_clear_the_cart(category):
         browser.open('')
         browser.element('.logo__image').should(be.present)
 
-    pr.clear_cart()
-
     with allure.step('Закрытие поп-апа выбора города'):
         browser.element('.close-modal-btn').click()
 
@@ -144,8 +142,6 @@ def test_check_add_to_cart_from_sorted_list(category, product, sort):
     with allure.step('Открытие главной страницы интернет-магазина "Сквот"'):
         browser.open('')
         browser.element('.logo__image').should(be.present)
-
-    pr.clear_cart()
 
     with allure.step('Закрытие поп-апа выбора города'):
         browser.element('.close-modal-btn').click()
