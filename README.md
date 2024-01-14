@@ -200,7 +200,14 @@ Build's status will change when tests will finish. And there will appear [TestOp
 ## Tests results
 
 ### TestOps report
-Go to [Jenkins project's page](https://jenkins.autotests.cloud/job/engovadzip_UI_project/). Click on <img src="resources/allure-testops.svg" height="18" width="20" /> in one of successful builds.  
+Go to [Jenkins project's page](https://jenkins.autotests.cloud/job/engovadzip_UI_project/). Click on <img src="resources/allure-testops.svg" height="18" width="20" /> in one of successful builds. Tests report is provided below:
+<p align="center">
+    <img src="resources/testops_screen_1.png" />  
+</p>  
+
+<p align="center">
+    <img src="resources/testops_screen_2.png" />  
+</p>  
 
 ### Allure report
 
@@ -212,3 +219,7 @@ If you generate report locally, follow the [instruction](#generating-a-test-repo
 
 ### Telegram notification
 
+After Jenkins' build will finish, Telegram Bot will send a notification with test results to Telegram chat. The chat is private. It is only for tests developer and responsible members. The notification is provided below:
+<p align="center">
+    <img src="resources/telegram_notification.png" />  
+</p>  
