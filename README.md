@@ -211,11 +211,12 @@ Go to [Jenkins project's page](https://jenkins.autotests.cloud/job/engovadzip_UI
 
 ### Allure report
 
-If you generate report locally, follow the [instruction](#generating-a-test-report). If you generate it on Jenkins, click on <img src="resources/allure-jenkins.png" height="18" width="18" /> in one of successful builds. Tests report is provided below:
+If you generate report locally, follow the [instruction](#generating-a-test-report). If you generate it on Jenkins, click on <img src="resources/allure-jenkins.png" height="18" width="18" /> in one of successful builds. Tests report from Jenkins is provided below:
 <p align="center">
     <img src="resources/allure-report.png" />  
 </p>  
 
+There will not be **TREND** in the report if you generate report locally. It will be in Jenkins only. 
 
 ### Telegram notification
 
