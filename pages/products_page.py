@@ -3,53 +3,38 @@ from random import randint
 import time
 
 class Elements:
-    # Боковая панель страницы с товарами
     side_panel_css = '..filter-aside__section'
 
-    # Меню выбора сортировки
     sort_menu_css = '#select_sort .SumoSelect'
 
-    # Наименование товара
     product_css = '.top-item__title'
 
-    # Цена товара
     price_css = '.top-item__price-new'
 
-    # Меню выбора наличия в магазинах
     shop_css = '#select_shop .SumoSelect'
 
-    # Кнопка "Ок" в меню выбора наличия в магазинах
     ok_css = '.btnOk'
 
-    # Кнопка "В корзину" на странице с товаром
     add_to_cart_xp = '//span[text()="В корзину"]'
 
-    # Размер товара (если применимо)
     product_size_css = '.product-size__label'
 
-    # Корзина
     cart_xp = '//div[@class="header__item col-sm-1 header__item--cart js-cart-trigger col-xs-2"]'
 
-    # Окно корзины (открывается при наведении курсора на иконку корзины)
     cart_window_xp = '//div[@class="cart-popup js-cart-popup cart-hover2 cart-popup--opened"]'
 
-    # Наименование товара в корзине
     product_cart_css = '.cart-popup-item__title'
 
-    # Цена товара в корзине
     price_cart_css = '.cart-popup-item__price-new'
 
-    # Кнопка "Очистить корзину"
     clear_xp = '//a[text()="Очистить корзину"]'
 
-    # Заголовок корзины
     cart_title_xp = '.cart-popup__title'
 
-    # Наименование товара на странице с его описанием
     product_page_name_css = '.page-head__title'
 
-    # Цена товара на странице с его описанием
     product_page_price_css = '.product-price__price-new'
+
 
 el = Elements()
 
@@ -93,8 +78,6 @@ class Actions:
         browser.element(f'//*[text()="{product_names[a]}"]')
         browser.element(f'//*[text()="{prices[a]}"]')
 
-        time.sleep(1)
-
         product_page_name = browser.element(el.product_page_name_css).get(query.text)
         product_page_price = browser.element(el.product_page_price_css).get(query.text).replace(' ', '')
 
@@ -129,7 +112,5 @@ class Actions:
 
     def clear_cart(self):
         browser.element(el.cart_xp).hover()
-        time.sleep(1)
         browser.element(el.clear_xp).click()
-        time.sleep(1)
         browser.element(el.cart_title_xp).should(have.text('Моя корзина пуста'))
