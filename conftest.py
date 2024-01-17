@@ -6,7 +6,6 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
 
-
 chrome_versions = ['99.0', '100.0']
 firefox_versions = ['97.0', '98.0']
 
@@ -104,20 +103,24 @@ def setup_browser(request):
 
     browser.quit()
 
+
 @pytest.fixture(scope='session')
 def category(request):
     category = request.config.getoption("category")
     return category
+
 
 @pytest.fixture(scope='session')
 def product(request):
     product = request.config.getoption("product")
     return product
 
+
 @pytest.fixture(scope='session')
 def sort(request):
     sort = request.config.getoption("sort")
     return sort
+
 
 @pytest.fixture(scope='session')
 def search(request):

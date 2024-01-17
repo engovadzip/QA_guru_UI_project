@@ -1,9 +1,9 @@
 from selene import be, browser
 import allure
-from pages import catalogue, products_page
+from pages import catalogue_page, products_page
 import time
 
-cat = catalogue.Actions()
+cat = catalogue_page.Actions()
 pr = products_page.Actions()
 
 
@@ -20,7 +20,8 @@ def test_check_search(search):
         cat.check_search(search)
 
 
-@allure.story('Проверка соответствия наименования и цены случайного товара в результатах наименованию и цене на странице с его описанием')
+@allure.story(
+    'Проверка соответствия наименования и цены случайного товара в результатах наименованию и цене на странице с его описанием')
 def test_correct_product_description_from_search(search):
     with allure.step('Открытие главной страницы интернет-магазина "Сквот"'):
         browser.open('')
@@ -92,7 +93,8 @@ def test_check_products_sorting(category, sort):
         pr.sort_products(sort)
 
 
-@allure.story('Проверка соответствия наименования и цены случайного товара в списке товаров наименованию и цене на странице с его описанием')
+@allure.story(
+    'Проверка соответствия наименования и цены случайного товара в списке товаров наименованию и цене на странице с его описанием')
 def test_correct_product_description_from_products_list(category):
     with allure.step('Открытие главной страницы интернет-магазина "Сквот"'):
         browser.open('')

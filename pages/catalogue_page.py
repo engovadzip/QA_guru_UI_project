@@ -1,5 +1,5 @@
 from selene import be, browser, query
-import time
+
 
 class Actions:
     def open_catalogue_menu(self):
@@ -22,4 +22,5 @@ class Actions:
 
         for result in results:
             assert search.lower() in result.get(query.text).lower(), \
-                f'Произошла ошибка при поиске. В строку поиска передан "{search}". Найденный результат {result.get(query.text)} не соответствует критерию поиска.'
+                (f'Произошла ошибка при поиске. В строку поиска передан "{search}". '
+                 f'Найденный результат {result.get(query.text)} не соответствует критерию поиска.')

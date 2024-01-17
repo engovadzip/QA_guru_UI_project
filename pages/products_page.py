@@ -2,6 +2,7 @@ from selene import be, browser, command, have, query
 from random import randint
 import time
 
+
 class Elements:
     side_panel_css = '..filter-aside__section'
 
@@ -38,6 +39,7 @@ class Elements:
 
 el = Elements()
 
+
 class Actions:
     def open_category(self, category):
         browser.element(f'//a[contains(text(), "{category.capitalize()}") and @data-url]').click()
@@ -54,10 +56,12 @@ class Actions:
         prices = [int(a.get(query.text).rstrip('₽').replace(' ', '')) for a in prices]
 
         if sort.lower() == 'сначала дешевое':
-            assert prices[0] <= prices[2], f'Цена первого товара {prices[0]}, а третьего - {prices[2]} при сортировке "сначала дешевое".'
+            assert prices[0] <= prices[
+                2], f'Цена первого товара {prices[0]}, а третьего - {prices[2]} при сортировке "сначала дешевое".'
 
         if sort.lower() == 'сначала дорогое':
-            assert prices[0] >= prices[2], f'Цена первого товара {prices[0]}, а третьего - {prices[2]} при сортировке "сначала дорогое".'
+            assert prices[0] >= prices[
+                2], f'Цена первого товара {prices[0]}, а третьего - {prices[2]} при сортировке "сначала дорогое".'
 
     def select_shop(self, shop):
         browser.element(el.shop_css).click()
@@ -83,8 +87,8 @@ class Actions:
 
         assert product_page_name.lower() == product_names[
             a].lower(), f'Наименование товара в списке товаров: {product_names[a]}, а на странице: {product_page_name}.'
-        assert product_page_price == prices[a].replace(' ', ''), f'Цена товара в списке товаров: {prices[a]}, а на странице: {product_page_price}.'
-
+        assert product_page_price == prices[a].replace(' ',
+                                                       ''), f'Цена товара в списке товаров: {prices[a]}, а на странице: {product_page_price}.'
 
     def add_product_to_cart(self):
         sizes = browser.all(el.product_size_css)
