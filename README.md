@@ -146,7 +146,7 @@ Also, you can set the options on tests using the following parameters in command
 * ```--product``` sets products' category that will be selected on products' list page.  
 * ```--sort``` sets sorting of products.  
 * ```--browser``` sets browser that will be used for tests. There is two options: ```chrome``` or ```firefox```.  
-* ```--remote``` sets tests launch locally or on [Selenoid server](https://selenoid.autotests.cloud/). If this mode will be turned on, you can check tests process on the server only.   
+* ```--remote``` sets tests launch locally or on [Selenoid server](https://selenoid.autotests.cloud/). This mode can be turned on in Jenkins only. You can check tests process on the Selenoid server only.   
 * ```--browser_version``` sets browser version on Selenoid server. For Mozilla Firefox there are 97.0 and 98.0 versions. For Google Chrome there are 99.0 and 100.0 versions. By default, browser version is 100.0 for Google Chrome. If you set incorrect browser version, there will be one of the following error messages:  
 
 For Mozilla Firefox:
