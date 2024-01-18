@@ -7,6 +7,9 @@
 
 <h2 align="center">Used stack</h2>
 <p align="center">
+    <a href="https://www.atlassian.com/software/jira/">
+        <img src="resources/jira-original.svg" height="40" width="40" />
+    </a>
     <a href="https://www.python.org/">
         <img src="resources/python-original.svg" height="40" width="40" />
     </a>
@@ -36,9 +39,6 @@
     </a>
     <a href="https://telegram.org/">
         <img src="resources/telegram-logo.svg" height="40" width="40" />
-    </a>
-    <a href="https://www.atlassian.com/software/jira/">
-        <img src="resources/jira-original.svg" height="40" width="40" />
     </a>
 </p>  
 
