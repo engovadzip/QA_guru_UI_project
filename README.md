@@ -37,6 +37,9 @@
     <a href="https://telegram.org/">
         <img src="resources/telegram-logo.svg" height="40" width="40" />
     </a>
+    <a href="https://www.atlassian.com/software/jira/">
+        <img src="resources/jira-original.svg" height="40" width="40" />
+    </a>
 </p>  
 
 <h2 align="center">Content</h2>  
@@ -53,7 +56,8 @@
 * [Tests results](#tests-results)  
     * [TestOps report](#testops-report)  
     * [Allure report](#allure-report)  
-    * [Telegram notification](#telegram-notification)  
+    * [Telegram notification](#telegram-notification)
+    * [Integration with Jira](#integration-with-jira) 
 
 ## Description
 
@@ -239,4 +243,10 @@ There will not be **TREND** in the report if you generate report locally. It wil
 After Jenkins' build will finish, Telegram Bot will send a notification with test results to Telegram chat. The chat is private. It is only for tests developer and responsible members. The notification is provided below:
 <p align="center">
     <img src="resources/telegram_notification.png" />  
+</p>  
+
+### Integration with Jira
+Test results are also available in the corresponding [Jira task](https://jira.autotests.cloud/browse/HOMEWORK-1065) as shown in the following figure:
+<p align="center">
+    <img src="resources/jira_screenshot.png" />  
 </p>  
