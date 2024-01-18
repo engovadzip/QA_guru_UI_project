@@ -1,7 +1,7 @@
 import allure
-from ..skvot_boardshop_UI_project_tests.pages.catalogue_page import catalogue_page_action
-from ..skvot_boardshop_UI_project_tests.pages.main_page import main_page_action
-from ..skvot_boardshop_UI_project_tests.pages.products_page import products_page_action
+from skvot_boardshop_project_tests.pages.catalogue_page import catalogue_page_action
+from skvot_boardshop_project_tests.pages.main_page import main_page_action
+from skvot_boardshop_project_tests.pages.products_page import products_page_action
 
 
 @allure.story('Проверка сортировки товаров')

@@ -1,7 +1,7 @@
 import os
 import pytest
 from dotenv import load_dotenv
-from ..skvot_boardshop_UI_project_tests.utils import attach
+from skvot_boardshop_project_tests.utils import attach
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions

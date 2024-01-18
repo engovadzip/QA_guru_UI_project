@@ -1,5 +1,5 @@
-import allure
 from selene import be, browser, query
+
 
 class MainPageActions:
     def open_main_page(self):
