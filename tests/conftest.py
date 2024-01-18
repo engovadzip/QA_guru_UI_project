@@ -1,7 +1,7 @@
 import os
 import pytest
 from dotenv import load_dotenv
-from utils import attach
+from ..skvot_boardshop_UI_project_tests.utils import attach
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, FirefoxOptions
@@ -21,7 +21,7 @@ def pytest_addoption(parser):
                      help="Choose browser name.")
     parser.addoption('--browser_version', action='store', default='100.0',
                      help="Choose browser version. For Chrome: 99.0 or 100.0. For Firefox: 97.0 or 98.0.")
-    parser.addoption('--remote', action='store', default='off',
+    parser.addoption('--remote', action='store', default='on',
                      help="Remote mode: on or off.")
     parser.addoption('--search', action='store', default='volcom',
                      help="Search request.")
@@ -75,10 +75,10 @@ def setup_browser(request):
 
     elif remote_mode.lower() == 'off':
         if browser_name.lower() == 'firefox':
-            driver = webdriver.Firefox()
+            driver = browser.config.driver_name = 'firefox'
             options = FirefoxOptions()
         elif browser_name.lower() == 'chrome':
-            driver = webdriver.Chrome()
+            driver = browser.config.driver_name = 'chrome'
             options = ChromeOptions()
 
         options.add_argument("--disable-gpu")

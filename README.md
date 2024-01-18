@@ -81,7 +81,7 @@ Before launch, you need to install the following (installation guide links are p
 * [Allure Pytest](https://pypi.org/project/allure-pytest/).  
 
 Also, download the repository with this project on your PC/laptop:  
-* Click on "**<> Code**" on the [project page](https://github.com/engovadzip/QA_guru_UI_project).  
+* Click on "**<> Code**" on the [project page](https://github.com/engovadzip/skvot_boardshop_UI_project).  
 * In the opened pop-up menu click on "**Download ZIP**".  
 * Download it to preferred directory and unpack downloaded archive there.  
 
@@ -109,7 +109,7 @@ The terminal will open in the bottom of PyCharm as shown in the following figure
 
 Launch tests using the following command:  
 ```
-pytest
+pytest --remote=off
 ```
 
 After running the command, Google Chrome will open and tests will start. Tests process is provided below:  
@@ -134,7 +134,7 @@ After that, your system's default browser will open and there will be a [generat
 
 By default, tests' options:  
 * "Volcom" search request.  
-* Local launch.  
+* Launch on [Selenoid server](https://selenoid.autotests.cloud/).  
 * Google Chrome browser.  
 * "Скейтбординг" category.  
 * "Деки скейтовые" products' category.  
@@ -146,7 +146,7 @@ Also, you can set the options on tests using the following parameters in command
 * ```--product``` sets products' category that will be selected on products' list page.  
 * ```--sort``` sets sorting of products.  
 * ```--browser``` sets browser that will be used for tests. There is two options: ```chrome``` or ```firefox```.  
-* ```--remote``` sets tests launch locally or on [Selenoid server](https://selenoid.autotests.cloud/). This mode can be turned on in Jenkins only. You can check tests process on the Selenoid server only.   
+* ```--remote``` sets tests launch locally or on Selenoid server. This mode can be turned on in Jenkins only. You can check tests process on the Selenoid server only.   
 * ```--browser_version``` sets browser version on Selenoid server. For Mozilla Firefox there are 97.0 and 98.0 versions. For Google Chrome there are 99.0 and 100.0 versions. By default, browser version is 100.0 for Google Chrome. If you set incorrect browser version, there will be one of the following error messages:  
 
 For Mozilla Firefox:
@@ -160,7 +160,7 @@ Choose one of the following versions: 99.0 or 100.0.
 
 For example, if you want to open "Сноубординг" category, select "Крепления" products' category, sort by "сначала дорогое" and launch it locally, run the following command in command line:  
 ```
-pytest --category="Сноубординг" --product="Крепления для сноуборда" --sort="сначала дорогое" .
+pytest --remote=on --category="Сноубординг" --product="Крепления для сноуборда" --sort="сначала дорогое" .
 ```  
 Its command's tests process is provided below:  
 <p align="center">
