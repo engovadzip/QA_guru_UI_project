@@ -3,7 +3,7 @@ from ..skvot_boardshop_UI_project_tests.pages.main_page import main_page_action
 
 
 @allure.story('Проверка работы поиска товаров')
-def test_check_search(search):
+def test_check_products_search(search):
     with allure.step('Открытие главной страницы интернет-магазина "Сквот"'):
         main_page_action.open_main_page()
 
