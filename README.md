@@ -164,7 +164,7 @@ Choose one of the following versions: 99.0 or 100.0.
 
 For example, if you want to open "Сноубординг" category, select "Крепления" products' category, sort by "сначала дорогое" and launch it locally, run the following command in command line:  
 ```
-pytest --remote=on --category="Сноубординг" --product="Крепления для сноуборда" --sort="сначала дорогое" .
+pytest --remote=off --category="Сноубординг" --product="Крепления для сноуборда" --sort="сначала дорогое" .
 ```  
 Its command's tests process is provided below:  
 <p align="center">
